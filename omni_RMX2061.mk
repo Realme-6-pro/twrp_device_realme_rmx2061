@@ -13,6 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+#
+# PBRP
 
 # Release name
 PRODUCT_RELEASE_NAME := RMX2061
@@ -21,8 +23,11 @@ DEVICE_PATH := device/realme/RMX2061
 $(call inherit-product, device/realme/RMX2061/device.mk)
 
 # Inherit some common TWRP stuff.
-$(call inherit-product, vendor/omni/config/common.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
+$(call inherit-product, vendor/pb/config/common.mk)
+#$(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
+
+# Inherit from those products. Most specific first.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := RMX2061
@@ -30,5 +35,6 @@ PRODUCT_NAME := omni_RMX2061
 PRODUCT_BRAND := realme
 PRODUCT_MODEL := realme 6 Pro
 PRODUCT_MANUFACTURER := realme
-
+#BOARD_VENDOR := 
+#TARGET_VENDOR := 
 #
